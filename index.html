@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reformas, Pintura y Mantenimiento Victorio</title>
+    <title>Reformas & Pintura | Calidad y profesionalidad</title>
 
     <meta name="description"
-        content="Victorio Paint. Reformas, pintura, reparaciones y mantenimiento. Solicita tu presupuesto sin compromiso.">
-
-    <meta name="theme-color" content="#0b0d10">
+        content="Empresa especializada en reformas, pintura y trabajos de mantenimiento a domicilio. Solicita tu presupuesto sin compromiso.">
 
     <style>
-
-        /* =====================================================
+        /* =========================
            CONFIGURACIÓN GENERAL
-        ===================================================== */
+        ========================= */
 
         * {
             margin: 0;
@@ -30,12 +27,8 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #0b0d10;
-            color: #fff;
+            color: #ffffff;
             overflow-x: hidden;
-        }
-
-        body.menu-open {
-            overflow: hidden;
         }
 
         a {
@@ -43,21 +36,9 @@
             text-decoration: none;
         }
 
-        button,
-        input,
-        textarea {
-            font-family: inherit;
-        }
-
-        ::selection {
-            background: #ffae00;
-            color: #111;
-        }
-
-
-        /* =====================================================
+        /* =========================
            FONDO ANIMADO
-        ===================================================== */
+        ========================= */
 
         .background {
             position: fixed;
@@ -65,71 +46,41 @@
             z-index: -2;
             overflow: hidden;
             background:
-                radial-gradient(
-                    circle at 20% 20%,
-                    rgba(255, 166, 0, .12),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 80% 70%,
-                    rgba(255, 255, 255, .05),
-                    transparent 30%
-                ),
+                radial-gradient(circle at 20% 20%, rgba(255, 166, 0, 0.12), transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05), transparent 30%),
                 #0b0d10;
-        }
-
-        .background::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(
-                    rgba(255,255,255,.015) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,.015) 1px,
-                    transparent 1px
-                );
-            background-size: 50px 50px;
-            mask-image: linear-gradient(
-                to bottom,
-                black,
-                transparent 90%
-            );
         }
 
         .orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(90px);
-            opacity: .3;
-            animation: float 12s infinite ease-in-out;
+            filter: blur(80px);
+            opacity: 0.35;
+            animation: float 10s infinite ease-in-out;
         }
 
         .orb1 {
-            width: 350px;
-            height: 350px;
+            width: 300px;
+            height: 300px;
             background: #ff9d00;
-            top: 5%;
-            left: -120px;
+            top: 10%;
+            left: -100px;
         }
 
         .orb2 {
-            width: 280px;
-            height: 280px;
+            width: 250px;
+            height: 250px;
             background: #ff4d00;
-            right: -100px;
+            right: -80px;
             top: 45%;
             animation-delay: 2s;
         }
 
         .orb3 {
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
             background: #ffc400;
-            bottom: -100px;
+            bottom: -50px;
             left: 40%;
             animation-delay: 4s;
         }
@@ -144,28 +95,9 @@
             }
         }
 
-
-        /* =====================================================
-           SCROLLBAR
-        ===================================================== */
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0b0d10;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #ffae00;
-            border-radius: 10px;
-        }
-
-
-        /* =====================================================
+        /* =========================
            NAVBAR
-        ===================================================== */
+        ========================= */
 
         nav {
             position: fixed;
@@ -180,19 +112,17 @@
 
             padding: 20px 7%;
 
-            background: rgba(11, 13, 16, .65);
+            background: rgba(11, 13, 16, 0.65);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
 
-            border-bottom: 1px solid rgba(255,255,255,.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
 
-            transition: .3s ease;
+            transition: 0.3s;
         }
 
         nav.scrolled {
             padding: 13px 7%;
-            background: rgba(11, 13, 16, .94);
-            box-shadow: 0 10px 40px rgba(0,0,0,.2);
+            background: rgba(11, 13, 16, 0.92);
         }
 
         .logo {
@@ -212,29 +142,13 @@
         }
 
         .nav-links a {
-            position: relative;
             color: #ddd;
+            transition: 0.3s;
             font-size: 15px;
-            transition: .3s;
-        }
-
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -7px;
-            width: 0;
-            height: 2px;
-            background: #ffae00;
-            transition: .3s;
         }
 
         .nav-links a:hover {
             color: #ffae00;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
         }
 
         .nav-button {
@@ -243,140 +157,54 @@
             color: #111;
             border-radius: 8px;
             font-weight: bold;
-            transition: .3s;
+            transition: 0.3s;
         }
 
         .nav-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255,174,0,.25);
+            box-shadow: 0 10px 25px rgba(255,174,0,0.25);
         }
 
-
-        /* =====================================================
-           MENÚ MÓVIL
-        ===================================================== */
-
-        .menu-toggle {
-            display: none;
-            width: 44px;
-            height: 44px;
-            border: 1px solid rgba(255,255,255,.15);
-            border-radius: 10px;
-            background: rgba(255,255,255,.05);
-            color: white;
-            cursor: pointer;
-            font-size: 22px;
-        }
-
-        .mobile-menu {
-            position: fixed;
-            top: 78px;
-            left: 5%;
-            right: 5%;
-            z-index: 999;
-
-            display: none;
-            flex-direction: column;
-            gap: 10px;
-
-            padding: 20px;
-
-            background: rgba(15,17,21,.97);
-            border: 1px solid rgba(255,255,255,.1);
-            border-radius: 18px;
-
-            box-shadow: 0 20px 60px rgba(0,0,0,.4);
-        }
-
-        .mobile-menu.active {
-            display: flex;
-            animation: menuIn .3s ease;
-        }
-
-        .mobile-menu a {
-            padding: 15px;
-            border-radius: 10px;
-            color: #ddd;
-        }
-
-        .mobile-menu a:hover {
-            background: rgba(255,174,0,.1);
-            color: #ffae00;
-        }
-
-        @keyframes menuIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        /* =====================================================
+        /* =========================
            HERO
-        ===================================================== */
+        ========================= */
 
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             padding: 150px 7% 100px;
+
             position: relative;
         }
 
         .hero-content {
-            max-width: 850px;
+            max-width: 800px;
         }
 
         .tag {
             display: inline-block;
             padding: 8px 14px;
-
-            border: 1px solid rgba(255,174,0,.4);
-            background: rgba(255,174,0,.08);
-
+            border: 1px solid rgba(255,174,0,0.4);
+            background: rgba(255,174,0,0.08);
             color: #ffbd2e;
             border-radius: 50px;
             font-size: 13px;
             margin-bottom: 25px;
 
-            animation: fadeUp .8s ease forwards;
+            animation: fadeUp 0.8s ease forwards;
         }
 
         .hero h1 {
             font-size: clamp(45px, 7vw, 90px);
-            line-height: .95;
+            line-height: 0.95;
             margin-bottom: 30px;
+
             animation: fadeUp 1s ease forwards;
         }
 
         .hero h1 span {
             color: #ffae00;
-            position: relative;
-        }
-
-        .hero h1 span::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 100%;
-            height: 4px;
-            background: #ffae00;
-            transform: scaleX(0);
-            transform-origin: left;
-            animation: underline 1s 1.5s ease forwards;
-        }
-
-        @keyframes underline {
-            to {
-                transform: scaleX(1);
-            }
         }
 
         .hero p {
@@ -385,6 +213,7 @@
             font-size: 19px;
             line-height: 1.7;
             margin-bottom: 35px;
+
             animation: fadeUp 1.2s ease forwards;
         }
 
@@ -392,20 +221,16 @@
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
+
             animation: fadeUp 1.4s ease forwards;
         }
-
-
-        /* =====================================================
-           BOTONES
-        ===================================================== */
 
         .button {
             display: inline-block;
             padding: 16px 25px;
             border-radius: 9px;
             font-weight: bold;
-            transition: .3s;
+            transition: 0.3s;
             cursor: pointer;
         }
 
@@ -416,23 +241,22 @@
 
         .button-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255,174,0,.25);
+            box-shadow: 0 15px 30px rgba(255,174,0,0.25);
         }
 
         .button-secondary {
-            border: 1px solid rgba(255,255,255,.2);
-            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.04);
         }
 
         .button-secondary:hover {
-            background: rgba(255,255,255,.1);
+            background: rgba(255,255,255,0.1);
             transform: translateY(-5px);
         }
 
-
-        /* =====================================================
-           ANIMACIONES
-        ===================================================== */
+        /* =========================
+           ANIMACIÓN ENTRADA
+        ========================= */
 
         @keyframes fadeUp {
             from {
@@ -446,21 +270,9 @@
             }
         }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity .8s ease, transform .8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-
-        /* =====================================================
+        /* =========================
            SECCIONES
-        ===================================================== */
+        ========================= */
 
         section {
             padding: 110px 7%;
@@ -490,10 +302,9 @@
             font-size: 17px;
         }
 
-
-        /* =====================================================
+        /* =========================
            SERVICIOS
-        ===================================================== */
+        ========================= */
 
         .services {
             display: grid;
@@ -505,62 +316,47 @@
             padding: 35px;
             min-height: 280px;
 
-            background: rgba(255,255,255,.045);
-            border: 1px solid rgba(255,255,255,.08);
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.08);
 
             border-radius: 18px;
 
             transition:
-                transform .4s,
-                background .4s,
-                border .4s;
+                transform 0.4s,
+                background 0.4s,
+                border 0.4s;
 
             position: relative;
             overflow: hidden;
-
-            transform-style: preserve-3d;
         }
 
         .service::before {
             content: "";
             position: absolute;
-
-            width: 180px;
-            height: 180px;
-
+            width: 150px;
+            height: 150px;
             background: #ffae00;
             border-radius: 50%;
             filter: blur(80px);
-
             opacity: 0;
-
-            right: -60px;
-            top: -60px;
-
-            transition: .4s;
+            right: -50px;
+            top: -50px;
+            transition: 0.4s;
         }
 
         .service:hover {
             transform: translateY(-10px);
-            background: rgba(255,255,255,.07);
-            border-color: rgba(255,174,0,.35);
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(255,174,0,0.35);
         }
 
         .service:hover::before {
-            opacity: .2;
+            opacity: 0.2;
         }
 
         .service-icon {
-            position: relative;
-            z-index: 1;
             font-size: 40px;
             margin-bottom: 25px;
-        }
-
-        .service h3,
-        .service p {
-            position: relative;
-            z-index: 1;
         }
 
         .service h3 {
@@ -573,10 +369,9 @@
             line-height: 1.7;
         }
 
-
-        /* =====================================================
+        /* =========================
            SOBRE NOSOTROS
-        ===================================================== */
+        ========================= */
 
         .about {
             display: grid;
@@ -592,17 +387,17 @@
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255,174,0,.2),
-                    rgba(0,0,0,.8)
+                    rgba(255,174,0,0.2),
+                    rgba(0,0,0,0.8)
                 ),
                 url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80");
 
             background-size: cover;
             background-position: center;
 
-            border: 1px solid rgba(255,255,255,.1);
+            border: 1px solid rgba(255,255,255,0.1);
 
-            transition: transform .6s;
+            transition: transform 0.6s;
         }
 
         .about-image:hover {
@@ -610,7 +405,7 @@
         }
 
         .about-text h2 {
-            font-size: clamp(35px, 5vw, 50px);
+            font-size: 50px;
             margin-bottom: 25px;
         }
 
@@ -619,11 +414,6 @@
             line-height: 1.8;
             margin-bottom: 20px;
         }
-
-
-        /* =====================================================
-           ESTADÍSTICAS
-        ===================================================== */
 
         .stats {
             display: grid;
@@ -634,9 +424,8 @@
 
         .stat {
             padding: 20px;
-            background: rgba(255,255,255,.04);
+            background: rgba(255,255,255,0.04);
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,.05);
         }
 
         .stat strong {
@@ -650,10 +439,9 @@
             font-size: 13px;
         }
 
-
-        /* =====================================================
+        /* =========================
            PROCESO
-        ===================================================== */
+        ========================= */
 
         .process {
             display: grid;
@@ -664,19 +452,13 @@
         .step {
             padding: 30px;
             border-left: 2px solid #ffae00;
-            background: rgba(255,255,255,.035);
-            transition: .3s;
-        }
-
-        .step:hover {
-            transform: translateY(-7px);
-            background: rgba(255,255,255,.06);
+            background: rgba(255,255,255,0.035);
         }
 
         .step-number {
             font-size: 45px;
             font-weight: 900;
-            color: rgba(255,174,0,.35);
+            color: rgba(255,174,0,0.35);
             margin-bottom: 20px;
         }
 
@@ -689,10 +471,9 @@
             line-height: 1.6;
         }
 
-
-        /* =====================================================
+        /* =========================
            CTA
-        ===================================================== */
+        ========================= */
 
         .cta {
             text-align: center;
@@ -701,12 +482,12 @@
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255,174,0,.15),
-                    rgba(255,255,255,.03)
+                    rgba(255,174,0,0.15),
+                    rgba(255,255,255,0.03)
                 );
 
-            border-top: 1px solid rgba(255,255,255,.08);
-            border-bottom: 1px solid rgba(255,255,255,.08);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .cta h2 {
@@ -717,14 +498,14 @@
         .cta p {
             color: #aaa;
             max-width: 600px;
-            margin: auto auto 35px;
+            margin: auto;
             line-height: 1.7;
+            margin-bottom: 35px;
         }
 
-
-        /* =====================================================
+        /* =========================
            CONTACTO
-        ===================================================== */
+        ========================= */
 
         .contact {
             display: grid;
@@ -733,31 +514,21 @@
         }
 
         .contact-info h2 {
-            font-size: clamp(35px, 5vw, 50px);
+            font-size: 50px;
             margin-bottom: 20px;
         }
 
-        .contact-info > p {
+        .contact-info p {
             color: #aaa;
             line-height: 1.7;
             margin-bottom: 30px;
         }
 
         .contact-item {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             padding: 18px;
-
-            background: rgba(255,255,255,.04);
+            background: rgba(255,255,255,0.04);
             border-radius: 10px;
-
-            border: 1px solid transparent;
-
-            transition: .3s;
-        }
-
-        .contact-item:hover {
-            border-color: rgba(255,174,0,.3);
-            transform: translateX(5px);
         }
 
         .contact-item strong {
@@ -766,14 +537,13 @@
             margin-bottom: 5px;
         }
 
+        .contact-item a {
+            transition: 0.3s;
+        }
+
         .contact-item a:hover {
             color: #ffae00;
         }
-
-
-        /* =====================================================
-           FORMULARIO
-        ===================================================== */
 
         .contact-form {
             display: flex;
@@ -786,28 +556,19 @@
             width: 100%;
             padding: 17px;
 
-            background: rgba(255,255,255,.05);
-            border: 1px solid rgba(255,255,255,.1);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 10px;
 
             color: white;
             outline: none;
 
             font-size: 15px;
-
-            transition: .3s;
-        }
-
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: #777;
         }
 
         .contact-form input:focus,
         .contact-form textarea:focus {
             border-color: #ffae00;
-            background: rgba(255,174,0,.04);
-            box-shadow: 0 0 0 3px rgba(255,174,0,.07);
         }
 
         .contact-form textarea {
@@ -815,44 +576,13 @@
             resize: vertical;
         }
 
-        .form-note {
-            color: #777;
-            font-size: 12px;
-            line-height: 1.5;
-        }
-
-
-        /* =====================================================
-           MENSAJE FORMULARIO
-        ===================================================== */
-
-        .success-message {
-            display: none;
-
-            padding: 15px;
-            border-radius: 10px;
-
-            background: rgba(37,211,102,.1);
-            border: 1px solid rgba(37,211,102,.3);
-
-            color: #72e69a;
-            line-height: 1.5;
-        }
-
-        .success-message.show {
-            display: block;
-            animation: fadeUp .4s ease;
-        }
-
-
-        /* =====================================================
+        /* =========================
            FOOTER
-        ===================================================== */
+        ========================= */
 
         footer {
             padding: 40px 7%;
-
-            border-top: 1px solid rgba(255,255,255,.08);
+            border-top: 1px solid rgba(255,255,255,0.08);
 
             display: flex;
             justify-content: space-between;
@@ -862,14 +592,9 @@
             color: #777;
         }
 
-        footer span {
-            color: #ffae00;
-        }
-
-
-        /* =====================================================
-           WHATSAPP
-        ===================================================== */
+        /* =========================
+           BOTÓN WHATSAPP
+        ========================= */
 
         .whatsapp {
             position: fixed;
@@ -891,91 +616,52 @@
 
             z-index: 999;
 
-            box-shadow: 0 10px 30px rgba(0,0,0,.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 
             animation: pulse 2s infinite;
-
-            transition: .3s;
-        }
-
-        .whatsapp:hover {
-            transform: scale(1.1);
         }
 
         @keyframes pulse {
             0% {
-                box-shadow:
-                    0 0 0 0 rgba(37,211,102,.5);
+                box-shadow: 0 0 0 0 rgba(37,211,102,0.5);
             }
 
             70% {
-                box-shadow:
-                    0 0 0 18px rgba(37,211,102,0);
+                box-shadow: 0 0 0 18px rgba(37,211,102,0);
             }
 
             100% {
-                box-shadow:
-                    0 0 0 0 rgba(37,211,102,0);
+                box-shadow: 0 0 0 0 rgba(37,211,102,0);
             }
         }
 
+        /* =========================
+           SCROLL REVEAL
+        ========================= */
 
-        /* =====================================================
-           BOTÓN VOLVER ARRIBA
-        ===================================================== */
-
-        .back-top {
-            position: fixed;
-            right: 25px;
-            bottom: 100px;
-
-            width: 45px;
-            height: 45px;
-
-            border-radius: 50%;
-
-            border: 1px solid rgba(255,255,255,.15);
-            background: rgba(15,17,20,.9);
-            color: white;
-
-            cursor: pointer;
-
+        .reveal {
             opacity: 0;
-            visibility: hidden;
-
-            transition: .3s;
-
-            z-index: 998;
+            transform: translateY(50px);
+            transition: 1s ease;
         }
 
-        .back-top.show {
+        .reveal.active {
             opacity: 1;
-            visibility: visible;
+            transform: translateY(0);
         }
 
-        .back-top:hover {
-            background: #ffae00;
-            color: #111;
-        }
-
-
-        /* =====================================================
+        /* =========================
            RESPONSIVE
-        ===================================================== */
+        ========================= */
 
-        @media (max-width: 1000px) {
+        @media (max-width: 900px) {
 
-            .nav-links,
-            .nav-button {
+            .nav-links {
                 display: none;
             }
 
-            .menu-toggle {
-                display: block;
-            }
-
             .services {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
 
             .about {
@@ -991,28 +677,21 @@
             }
         }
 
-
         @media (max-width: 600px) {
-
-            nav {
-                padding: 16px 5%;
-            }
-
-            nav.scrolled {
-                padding: 12px 5%;
-            }
-
-            .hero {
-                padding: 130px 5% 80px;
-                min-height: 90vh;
-            }
 
             section {
                 padding: 80px 5%;
             }
 
-            .services,
-            .process,
+            .hero {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .process {
+                grid-template-columns: 1fr;
+            }
+
             .stats {
                 grid-template-columns: 1fr;
             }
@@ -1024,63 +703,14 @@
             .hero h1 {
                 font-size: 48px;
             }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .hero-buttons .button {
-                text-align: center;
-                width: 100%;
-            }
-
-            .whatsapp {
-                right: 18px;
-                bottom: 18px;
-            }
-
-            .back-top {
-                right: 18px;
-                bottom: 88px;
-            }
-
-            footer {
-                padding: 30px 5%;
-                flex-direction: column;
-                text-align: center;
-            }
         }
-
-
-        /* =====================================================
-           REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE
-        ===================================================== */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                scroll-behavior: auto !important;
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: .01ms !important;
-            }
-        }
-
     </style>
 </head>
 
 
 <body>
 
-    <!-- =====================================================
-         FONDO
-    ===================================================== -->
+    <!-- FONDO ANIMADO -->
 
     <div class="background">
         <div class="orb orb1"></div>
@@ -1089,14 +719,15 @@
     </div>
 
 
-    <!-- =====================================================
+    <!-- =========================
          NAVBAR
-    ===================================================== -->
+    ========================== -->
 
     <nav id="navbar">
 
+        <!-- CAMBIAR NOMBRE AQUÍ -->
         <a href="#inicio" class="logo">
-            VICTORIO<span>PAINT</span>
+            REFORMAS<span>PRO</span>
         </a>
 
         <ul class="nav-links">
@@ -1110,48 +741,14 @@
             Presupuesto
         </a>
 
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Abrir menú"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
-
     </nav>
 
 
-    <!-- =====================================================
-         MENÚ MÓVIL
-    ===================================================== -->
-
-    <div class="mobile-menu" id="mobileMenu">
-
-        <a href="#servicios">Servicios</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#proceso">Cómo trabajamos</a>
-        <a href="#contacto">Contacto</a>
-
-        <a
-            href="https://wa.me/34609861923"
-            target="_blank"
-            rel="noopener"
-            class="button button-primary"
-        >
-            💬 WhatsApp
-        </a>
-
-    </div>
-
-
-    <!-- =====================================================
-         CONTENIDO
-    ===================================================== -->
+    <!-- =========================
+         HERO
+    ========================== -->
 
     <main>
-
-        <!-- HERO -->
 
         <section class="hero" id="inicio">
 
@@ -1168,25 +765,17 @@
 
                 <p>
                     Reformas, pintura y trabajos de mantenimiento
-                    realizados con profesionalidad. Cuidamos cada
-                    detalle para conseguir el resultado que buscas.
+                    realizados por profesionales. Trabajamos a domicilio
+                    cuidando cada detalle.
                 </p>
 
                 <div class="hero-buttons">
 
-                    <a
-                        href="https://wa.me/34609861923?text=Hola%20Victorio%20Paint,%20me%20gustaría%20solicitar%20un%20presupuesto."
-                        target="_blank"
-                        rel="noopener"
-                        class="button button-primary"
-                    >
+                    <a href="#contacto" class="button button-primary">
                         Solicitar presupuesto →
                     </a>
 
-                    <a
-                        href="#servicios"
-                        class="button button-secondary"
-                    >
+                    <a href="#servicios" class="button button-secondary">
                         Ver servicios
                     </a>
 
@@ -1197,9 +786,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =========================
              SERVICIOS
-        ================================================== -->
+        ========================== -->
 
         <section id="servicios">
 
@@ -1222,62 +811,86 @@
             <div class="services">
 
                 <div class="service reveal">
+
                     <div class="service-icon">🎨</div>
+
                     <h3>Pintura</h3>
+
                     <p>
                         Pintura interior y exterior, paredes, techos,
                         habitaciones y todo tipo de superficies.
                     </p>
+
                 </div>
 
 
                 <div class="service reveal">
+
                     <div class="service-icon">🏠</div>
+
                     <h3>Reformas</h3>
+
                     <p>
                         Reformas y mejoras para viviendas, locales
                         y diferentes espacios.
                     </p>
+
                 </div>
 
 
                 <div class="service reveal">
+
                     <div class="service-icon">🔨</div>
+
                     <h3>Trabajos de obra</h3>
+
                     <p>
                         Trabajos de albañilería, reparación,
                         mantenimiento y renovación.
                     </p>
+
                 </div>
 
 
                 <div class="service reveal">
+
                     <div class="service-icon">🚿</div>
+
                     <h3>Baños</h3>
+
                     <p>
                         Renovación y mejora de baños para conseguir
                         un espacio moderno y funcional.
                     </p>
+
                 </div>
 
 
                 <div class="service reveal">
+
                     <div class="service-icon">🧱</div>
+
                     <h3>Reparaciones</h3>
+
                     <p>
                         Solucionamos desperfectos y realizamos
                         trabajos de mantenimiento en el hogar.
                     </p>
+
                 </div>
 
 
                 <div class="service reveal">
+
                     <div class="service-icon">✨</div>
+
                     <h3>Mejoras del hogar</h3>
+
                     <p>
                         Cuéntanos qué necesitas y buscamos la mejor
                         solución para tu vivienda.
                     </p>
+
                 </div>
 
             </div>
@@ -1285,15 +898,16 @@
         </section>
 
 
-        <!-- =================================================
-             NOSOTROS
-        ================================================== -->
+        <!-- =========================
+             SOBRE NOSOTROS
+        ========================== -->
 
         <section id="nosotros">
 
             <div class="about">
 
                 <div class="about-image reveal"></div>
+
 
                 <div class="about-text reveal">
 
@@ -1306,15 +920,13 @@
                     </h2>
 
                     <p>
-                        En Victorio Paint nos dedicamos a reformas,
-                        pintura, reparaciones y trabajos de
-                        mantenimiento.
+                        Somos una empresa especializada en reformas,
+                        pintura y trabajos de mantenimiento.
                     </p>
 
                     <p>
-                        Nuestro objetivo es ofrecer un servicio
-                        profesional, cercano y adaptado a las
-                        necesidades de cada cliente.
+                        Nuestro objetivo es ofrecer un servicio cercano,
+                        profesional y adaptado a cada cliente.
                     </p>
 
                     <p>
@@ -1326,17 +938,12 @@
                     <div class="stats">
 
                         <div class="stat">
-                            <strong class="counter" data-target="10">0</strong>
+                            <strong>10+</strong>
                             <span>Años de experiencia</span>
                         </div>
 
                         <div class="stat">
-                            <strong>
-                                <span
-                                    class="counter"
-                                    data-target="100"
-                                >0</span>+
-                            </strong>
+                            <strong>100+</strong>
                             <span>Trabajos realizados</span>
                         </div>
 
@@ -1354,9 +961,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =========================
              PROCESO
-        ================================================== -->
+        ========================== -->
 
         <section id="proceso">
 
@@ -1367,11 +974,6 @@
                 <h2>
                     Fácil, rápido y sin complicaciones.
                 </h2>
-
-                <p>
-                    Queremos que solicitar un trabajo sea sencillo
-                    desde el primer contacto hasta la finalización.
-                </p>
 
             </div>
 
@@ -1385,8 +987,8 @@
                     <h3>Nos contactas</h3>
 
                     <p>
-                        Cuéntanos qué necesitas realizar en tu
-                        vivienda o local.
+                        Cuéntanos qué necesitas realizar en tu vivienda
+                        o local.
                     </p>
 
                 </div>
@@ -1427,8 +1029,8 @@
                     <h3>Manos a la obra</h3>
 
                     <p>
-                        Nos ponemos manos a la obra y cuidamos
-                        cada detalle del proyecto.
+                        Nos ponemos manos a la obra y cuidamos cada
+                        detalle del proyecto.
                     </p>
 
                 </div>
@@ -1438,9 +1040,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =========================
              CTA
-        ================================================== -->
+        ========================== -->
 
         <section class="cta reveal">
 
@@ -1454,21 +1056,16 @@
                 de mantenimiento.
             </p>
 
-            <a
-                href="https://wa.me/34609861923?text=Hola%20Victorio%20Paint,%20me%20gustaría%20informarme%20sobre%20un%20trabajo."
-                target="_blank"
-                rel="noopener"
-                class="button button-primary"
-            >
-                💬 Hablar por WhatsApp
+            <a href="#contacto" class="button button-primary">
+                Pedir presupuesto
             </a>
 
         </section>
 
 
-        <!-- =================================================
+        <!-- =========================
              CONTACTO
-        ================================================== -->
+        ========================== -->
 
         <section id="contacto">
 
@@ -1486,24 +1083,22 @@
 
                     <p>
                         Puedes llamarnos, escribirnos por WhatsApp
-                        o utilizar el formulario para contarnos qué
-                        necesitas.
+                        o utilizar el formulario.
                     </p>
 
 
-                    <div class="contact-item">
+                    <!-- DATOS ACTUALIZADOS -->
 
+                    <div class="contact-item">
                         <strong>📞 Teléfono</strong>
 
                         <a href="tel:+34609861923">
                             609 86 19 23
                         </a>
-
                     </div>
 
 
                     <div class="contact-item">
-
                         <strong>💬 WhatsApp</strong>
 
                         <a
@@ -1511,70 +1106,52 @@
                             target="_blank"
                             rel="noopener"
                         >
-                            609 86 19 23 · Abrir WhatsApp
+                            609 86 19 23
                         </a>
-
                     </div>
 
 
                     <div class="contact-item">
+                        <strong>📍 Zona de trabajo</strong>
+                        Tu ciudad y alrededores
+                    </div>
 
+
+                    <div class="contact-item">
                         <strong>✉️ Email</strong>
 
                         <a href="mailto:victorio.paint8@gmail.com">
                             victorio.paint8@gmail.com
                         </a>
-
-                    </div>
-
-
-                    <div class="contact-item">
-
-                        <strong>📍 Zona de trabajo</strong>
-
-                        Tu ciudad y alrededores
-
                     </div>
 
                 </div>
 
 
-                <!-- FORMULARIO -->
-
-                <form
-                    class="contact-form reveal"
-                    id="contactForm"
-                >
+                <form class="contact-form"
+                      onsubmit="enviarFormulario(event)">
 
                     <input
                         type="text"
-                        id="nombre"
                         placeholder="Tu nombre"
-                        autocomplete="name"
                         required
                     >
 
                     <input
                         type="tel"
-                        id="telefono"
                         placeholder="Teléfono"
-                        autocomplete="tel"
                         required
                     >
 
                     <input
                         type="email"
-                        id="email"
                         placeholder="Email"
-                        autocomplete="email"
                     >
 
                     <textarea
-                        id="mensaje"
                         placeholder="Cuéntanos qué trabajo necesitas..."
                         required
                     ></textarea>
-
 
                     <button
                         type="submit"
@@ -1583,20 +1160,6 @@
                     >
                         Solicitar presupuesto →
                     </button>
-
-
-                    <div class="form-note">
-                        Al enviar el formulario se abrirá WhatsApp
-                        con la información que hayas introducido.
-                    </div>
-
-
-                    <div
-                        class="success-message"
-                        id="successMessage"
-                    >
-                        ✓ Preparando tu mensaje de WhatsApp...
-                    </div>
 
                 </form>
 
@@ -1607,14 +1170,14 @@
     </main>
 
 
-    <!-- =====================================================
+    <!-- =========================
          FOOTER
-    ===================================================== -->
+    ========================== -->
 
     <footer>
 
         <div>
-            © 2026 <span>VICTORIO PAINT</span>
+            © 2026 REFORMASPRO
         </div>
 
         <div>
@@ -1624,47 +1187,30 @@
     </footer>
 
 
-    <!-- =====================================================
-         WHATSAPP FLOTANTE
-    ===================================================== -->
+    <!-- =========================
+         WHATSAPP
+    ========================== -->
 
     <a
         class="whatsapp"
-        href="https://wa.me/34609861923?text=Hola%20Victorio%20Paint,%20me%20gustaría%20solicitar%20información."
+        href="https://wa.me/34609861923"
         target="_blank"
         rel="noopener"
         title="Contactar por WhatsApp"
-        aria-label="Contactar por WhatsApp"
     >
         💬
     </a>
 
 
-    <!-- =====================================================
-         VOLVER ARRIBA
-    ===================================================== -->
-
-    <button
-        class="back-top"
-        id="backTop"
-        aria-label="Volver arriba"
-    >
-        ↑
-    </button>
-
-
-    <!-- =====================================================
+    <!-- =========================
          JAVASCRIPT
-    ===================================================== -->
+    ========================== -->
 
     <script>
 
-        /* =================================================
-           NAVBAR
-        ================================================= */
+        /* NAVBAR AL HACER SCROLL */
 
         const navbar = document.getElementById("navbar");
-        const backTop = document.getElementById("backTop");
 
         window.addEventListener("scroll", () => {
 
@@ -1674,380 +1220,47 @@
                 navbar.classList.remove("scrolled");
             }
 
-            if (window.scrollY > 500) {
-                backTop.classList.add("show");
-            } else {
-                backTop.classList.remove("show");
-            }
-
         });
 
 
-        /* =================================================
-           VOLVER ARRIBA
-        ================================================= */
-
-        backTop.addEventListener("click", () => {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        });
-
-
-        /* =================================================
-           MENÚ MÓVIL
-        ================================================= */
-
-        const menuToggle = document.getElementById("menuToggle");
-        const mobileMenu = document.getElementById("mobileMenu");
-
-        menuToggle.addEventListener("click", () => {
-
-            const active = mobileMenu.classList.toggle("active");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                active
-            );
-
-            menuToggle.textContent = active ? "✕" : "☰";
-
-            document.body.classList.toggle(
-                "menu-open",
-                active
-            );
-
-        });
-
-
-        /* CERRAR MENÚ AL PULSAR EN UN ENLACE */
-
-        document.querySelectorAll(".mobile-menu a").forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                mobileMenu.classList.remove("active");
-
-                menuToggle.textContent = "☰";
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                document.body.classList.remove(
-                    "menu-open"
-                );
-
-            });
-
-        });
-
-
-        /* =================================================
-           SCROLL REVEAL
-        ================================================= */
+        /* ANIMACIONES AL HACER SCROLL */
 
         const reveals = document.querySelectorAll(".reveal");
 
-        const revealObserver = new IntersectionObserver(
-            (entries) => {
+        function revealOnScroll() {
 
-                entries.forEach(entry => {
+            reveals.forEach(element => {
 
-                    if (entry.isIntersecting) {
+                const windowHeight = window.innerHeight;
 
-                        entry.target.classList.add("active");
+                const elementTop =
+                    element.getBoundingClientRect().top;
 
-                        revealObserver.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-
-        reveals.forEach(element => {
-
-            revealObserver.observe(element);
-
-        });
-
-
-        /* =================================================
-           CONTADORES
-        ================================================= */
-
-        const counters =
-            document.querySelectorAll(".counter");
-
-        let countersStarted = false;
-
-        function startCounters() {
-
-            if (countersStarted) return;
-
-            countersStarted = true;
-
-            counters.forEach(counter => {
-
-                const target =
-                    Number(counter.dataset.target);
-
-                let current = 0;
-
-                const duration = 1600;
-
-                const startTime = performance.now();
-
-                function updateCounter(currentTime) {
-
-                    const progress =
-                        Math.min(
-                            (currentTime - startTime) / duration,
-                            1
-                        );
-
-                    current =
-                        Math.floor(
-                            progress * target
-                        );
-
-                    counter.textContent = current;
-
-                    if (progress < 1) {
-
-                        requestAnimationFrame(
-                            updateCounter
-                        );
-
-                    } else {
-
-                        counter.textContent = target;
-
-                    }
-
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add("active");
                 }
-
-                requestAnimationFrame(
-                    updateCounter
-                );
 
             });
 
         }
 
+        window.addEventListener("scroll", revealOnScroll);
 
-        const statsSection =
-            document.querySelector(".stats");
+        revealOnScroll();
 
-        const statsObserver =
-            new IntersectionObserver(
-                entries => {
 
-                    if (entries[0].isIntersecting) {
+        /* FORMULARIO */
 
-                        startCounters();
+        function enviarFormulario(event) {
 
-                        statsObserver.disconnect();
+            event.preventDefault();
 
-                    }
-
-                },
-                {
-                    threshold: .5
-                }
+            alert(
+                "¡Gracias! Hemos recibido tu solicitud. " +
+                "Próximamente conectaremos este formulario con WhatsApp o email."
             );
 
-        if (statsSection) {
-            statsObserver.observe(statsSection);
         }
-
-
-        /* =================================================
-           EFECTO 3D EN TARJETAS
-        ================================================= */
-
-        const serviceCards =
-            document.querySelectorAll(".service");
-
-        serviceCards.forEach(card => {
-
-            card.addEventListener(
-                "mousemove",
-                event => {
-
-                    if (window.innerWidth <= 900) {
-                        return;
-                    }
-
-                    const rect =
-                        card.getBoundingClientRect();
-
-                    const x =
-                        event.clientX - rect.left;
-
-                    const y =
-                        event.clientY - rect.top;
-
-                    const centerX =
-                        rect.width / 2;
-
-                    const centerY =
-                        rect.height / 2;
-
-                    const rotateX =
-                        ((y - centerY) / centerY) * -3;
-
-                    const rotateY =
-                        ((x - centerX) / centerX) * 3;
-
-                    card.style.transform =
-                        `translateY(-10px)
-                         rotateX(${rotateX}deg)
-                         rotateY(${rotateY}deg)`;
-
-                }
-            );
-
-
-            card.addEventListener(
-                "mouseleave",
-                () => {
-
-                    card.style.transform = "";
-
-                }
-            );
-
-        });
-
-
-        /* =================================================
-           FORMULARIO -> WHATSAPP
-        ================================================= */
-
-        const contactForm =
-            document.getElementById("contactForm");
-
-        const successMessage =
-            document.getElementById("successMessage");
-
-        contactForm.addEventListener(
-            "submit",
-            function(event) {
-
-                event.preventDefault();
-
-
-                const nombre =
-                    document.getElementById("nombre")
-                    .value.trim();
-
-                const telefono =
-                    document.getElementById("telefono")
-                    .value.trim();
-
-                const email =
-                    document.getElementById("email")
-                    .value.trim();
-
-                const mensaje =
-                    document.getElementById("mensaje")
-                    .value.trim();
-
-
-                const texto =
-                    `Hola Victorio Paint 👋
-
-Me gustaría solicitar un presupuesto.
-
-👤 Nombre: ${nombre}
-📞 Teléfono: ${telefono}
-✉️ Email: ${email || "No indicado"}
-
-🛠️ Trabajo que necesito:
-${mensaje}`;
-
-
-                const whatsappURL =
-                    "https://wa.me/34609861923?text=" +
-                    encodeURIComponent(texto);
-
-
-                successMessage.classList.add("show");
-
-
-                setTimeout(() => {
-
-                    window.open(
-                        whatsappURL,
-                        "_blank"
-                    );
-
-                }, 500);
-
-            }
-        );
-
-
-        /* =================================================
-           PARALLAX SUAVE DEL FONDO
-        ================================================= */
-
-        const orbs =
-            document.querySelectorAll(".orb");
-
-        window.addEventListener(
-            "mousemove",
-            event => {
-
-                if (window.innerWidth <= 900) {
-                    return;
-                }
-
-                const x =
-                    (event.clientX / window.innerWidth - .5);
-
-                const y =
-                    (event.clientY / window.innerHeight - .5);
-
-                orbs.forEach((orb, index) => {
-
-                    const movement =
-                        (index + 1) * 12;
-
-                    orb.style.marginLeft =
-                        `${x * movement}px`;
-
-                    orb.style.marginTop =
-                        `${y * movement}px`;
-
-                });
-
-            }
-        );
-
-
-        /* =================================================
-           AÑO AUTOMÁTICO
-        ================================================= */
-
-        document.querySelector("footer div")
-            .innerHTML =
-            `© ${new Date().getFullYear()}
-             <span>VICTORIO PAINT</span>`;
-
 
     </script>
 
