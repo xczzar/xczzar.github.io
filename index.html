@@ -651,6 +651,20 @@
         }
 
         /* =========================
+           MENSAJE FORMULARIO
+        ========================= */
+
+        .form-message {
+            display: none;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(37, 211, 102, 0.12);
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            color: #8ff0b2;
+            line-height: 1.5;
+        }
+
+        /* =========================
            RESPONSIVE
         ========================= */
 
@@ -725,7 +739,6 @@
 
     <nav id="navbar">
 
-        <!-- CAMBIAR NOMBRE AQUÍ -->
         <a href="#inicio" class="logo">
             REFORMAS<span>VICTORIO</span>
         </a>
@@ -1087,18 +1100,19 @@
                     </p>
 
 
-                    <!-- DATOS ACTUALIZADOS -->
-
                     <div class="contact-item">
+
                         <strong>📞 Teléfono</strong>
 
                         <a href="tel:+34609861923">
                             609 86 19 23
                         </a>
+
                     </div>
 
 
                     <div class="contact-item">
+
                         <strong>💬 WhatsApp</strong>
 
                         <a
@@ -1108,47 +1122,63 @@
                         >
                             609 86 19 23
                         </a>
+
                     </div>
 
 
                     <div class="contact-item">
+
                         <strong>📍 Zona de trabajo</strong>
+
                         Tu ciudad y alrededores
+
                     </div>
 
 
                     <div class="contact-item">
+
                         <strong>✉️ Email</strong>
 
                         <a href="mailto:victorio.paint8@gmail.com">
                             victorio.paint8@gmail.com
                         </a>
+
                     </div>
 
                 </div>
 
 
-                <form class="contact-form"
-                      onsubmit="enviarFormulario(event)">
+                <!-- =========================
+                     FORMULARIO WHATSAPP
+                ========================== -->
+
+                <form
+                    class="contact-form reveal"
+                    onsubmit="enviarFormulario(event)"
+                >
 
                     <input
+                        id="nombre"
                         type="text"
                         placeholder="Tu nombre"
                         required
                     >
 
                     <input
+                        id="telefono"
                         type="tel"
                         placeholder="Teléfono"
                         required
                     >
 
                     <input
+                        id="email"
                         type="email"
                         placeholder="Email"
                     >
 
                     <textarea
+                        id="trabajo"
                         placeholder="Cuéntanos qué trabajo necesitas..."
                         required
                     ></textarea>
@@ -1160,6 +1190,10 @@
                     >
                         Solicitar presupuesto →
                     </button>
+
+                    <div id="formMessage" class="form-message">
+                        Preparando tu solicitud para WhatsApp...
+                    </div>
 
                 </form>
 
@@ -1177,7 +1211,7 @@
     <footer>
 
         <div>
-            © 2026 REFORMASPRO
+            © 2026 REFORMAS VICTORIO
         </div>
 
         <div>
@@ -1208,22 +1242,30 @@
 
     <script>
 
-        /* NAVBAR AL HACER SCROLL */
+        /* =========================
+           NAVBAR AL HACER SCROLL
+        ========================== */
 
         const navbar = document.getElementById("navbar");
 
         window.addEventListener("scroll", () => {
 
             if (window.scrollY > 50) {
+
                 navbar.classList.add("scrolled");
+
             } else {
+
                 navbar.classList.remove("scrolled");
+
             }
 
         });
 
 
-        /* ANIMACIONES AL HACER SCROLL */
+        /* =========================
+           ANIMACIONES AL HACER SCROLL
+        ========================== */
 
         const reveals = document.querySelectorAll(".reveal");
 
@@ -1237,7 +1279,9 @@
                     element.getBoundingClientRect().top;
 
                 if (elementTop < windowHeight - 100) {
+
                     element.classList.add("active");
+
                 }
 
             });
@@ -1249,16 +1293,104 @@
         revealOnScroll();
 
 
-        /* FORMULARIO */
+        /* =========================
+           FORMULARIO → WHATSAPP
+        ========================== */
 
         function enviarFormulario(event) {
 
             event.preventDefault();
 
-            alert(
-                "¡Gracias! Hemos recibido tu solicitud. " +
-                "Próximamente conectaremos este formulario con WhatsApp o email."
-            );
+            /* Obtener los datos */
+
+            const nombre =
+                document.getElementById("nombre").value.trim();
+
+            const telefono =
+                document.getElementById("telefono").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const trabajo =
+                document.getElementById("trabajo").value.trim();
+
+
+            /* Comprobar datos */
+
+            if (!nombre || !telefono || !trabajo) {
+
+                alert(
+                    "Por favor, completa tu nombre, teléfono y el trabajo que necesitas."
+                );
+
+                return;
+
+            }
+
+
+            /* Crear mensaje */
+
+            let mensaje =
+                "Hola, quiero solicitar un presupuesto.%0A%0A" +
+
+                "*Nombre:* " +
+                encodeURIComponent(nombre) +
+
+                "%0A" +
+
+                "*Teléfono:* " +
+                encodeURIComponent(telefono);
+
+
+            /* Añadir email si se ha escrito */
+
+            if (email) {
+
+                mensaje +=
+                    "%0A" +
+                    "*Email:* " +
+                    encodeURIComponent(email);
+
+            }
+
+
+            /* Añadir descripción del trabajo */
+
+            mensaje +=
+                "%0A%0A" +
+
+                "*Trabajo que necesito:*%0A" +
+
+                encodeURIComponent(trabajo);
+
+
+            /* Mostrar mensaje */
+
+            const formMessage =
+                document.getElementById("formMessage");
+
+            formMessage.style.display = "block";
+
+            formMessage.textContent =
+                "Abriendo WhatsApp para enviar tu solicitud...";
+
+
+            /* Abrir WhatsApp */
+
+            const whatsappURL =
+                "https://wa.me/34609861923?text=" +
+                mensaje;
+
+
+            setTimeout(() => {
+
+                window.open(
+                    whatsappURL,
+                    "_blank"
+                );
+
+            }, 500);
 
         }
 
