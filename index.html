@@ -9,13 +9,13 @@
     <title>Reformas & Pintura | Calidad y profesionalidad</title>
 
     <meta name="description"
-        content="Empresa especializada en reformas, pintura y trabajos de mantenimiento a domicilio. Solicita tu presupuesto sin compromiso.">
+        content="Reformas, pintura, mantenimiento y renovación de viviendas. Solicita tu presupuesto sin compromiso.">
 
     <style>
 
-        /* =========================
+        /* =====================================================
            CONFIGURACIÓN GENERAL
-        ========================= */
+        ===================================================== */
 
         * {
             margin: 0;
@@ -29,7 +29,7 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #0b0d10;
+            background: #111315;
             color: #ffffff;
             overflow-x: hidden;
         }
@@ -39,152 +39,216 @@
             text-decoration: none;
         }
 
+        ::selection {
+            background: #ffad00;
+            color: #111;
+        }
 
-        /* =========================
-           FONDO ANIMADO
-        ========================= */
+
+        /* =====================================================
+           FONDO
+        ===================================================== */
 
         .background {
             position: fixed;
             inset: 0;
-            z-index: -2;
+            z-index: -10;
             overflow: hidden;
+            background: #111315;
+        }
+
+        .background-image {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    rgba(17,19,21,0.88),
+                    rgba(17,19,21,0.96)
+                ),
+                url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            filter: blur(8px);
+            transform: scale(1.05);
+
+            opacity: 0.35;
+        }
+
+        .background::after {
+            content: "";
+            position: absolute;
+            inset: 0;
 
             background:
                 radial-gradient(
-                    circle at 20% 20%,
-                    rgba(255, 166, 0, 0.12),
+                    circle at 10% 20%,
+                    rgba(255,174,0,0.18),
                     transparent 30%
                 ),
                 radial-gradient(
-                    circle at 80% 70%,
-                    rgba(255, 255, 255, 0.05),
+                    circle at 90% 70%,
+                    rgba(255,110,0,0.12),
                     transparent 30%
-                ),
-                #0b0d10;
+                );
         }
 
-        .orb {
-            position: absolute;
+
+        /* =====================================================
+           DECORACIÓN
+        ===================================================== */
+
+        .light {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.35;
-            animation: float 10s infinite ease-in-out;
+
+            background: rgba(255,174,0,0.12);
+
+            filter: blur(100px);
+
+            pointer-events: none;
+
+            z-index: -5;
+
+            animation: moveLight 12s ease-in-out infinite;
         }
 
-        .orb1 {
-            width: 300px;
-            height: 300px;
-            background: #ff9d00;
-            top: 10%;
-            left: -100px;
+        .light.one {
+            top: 5%;
+            left: -150px;
         }
 
-        .orb2 {
-            width: 250px;
-            height: 250px;
-            background: #ff4d00;
-            right: -80px;
-            top: 45%;
-            animation-delay: 2s;
-        }
+        .light.two {
+            right: -150px;
+            top: 55%;
 
-        .orb3 {
-            width: 200px;
-            height: 200px;
-            background: #ffc400;
-            bottom: -50px;
-            left: 40%;
             animation-delay: 4s;
         }
 
-        @keyframes float {
+        @keyframes moveLight {
 
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
+            0%,
+            100% {
+                transform: translate(0,0);
             }
 
             50% {
-                transform: translate(40px, -50px) scale(1.15);
+                transform: translate(60px,-40px);
             }
 
         }
 
 
-        /* =========================
+        /* =====================================================
            NAVBAR
-        ========================= */
+        ===================================================== */
 
         nav {
             position: fixed;
+
             top: 0;
             left: 0;
+
             width: 100%;
+
             z-index: 1000;
 
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            padding: 20px 7%;
+            gap: 25px;
 
-            background: rgba(11, 13, 16, 0.65);
-            backdrop-filter: blur(15px);
+            padding: 18px 7%;
+
+            background: rgba(15,17,19,0.72);
+
+            backdrop-filter: blur(18px);
 
             border-bottom: 1px solid rgba(255,255,255,0.08);
 
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
         nav.scrolled {
-            padding: 13px 7%;
-            background: rgba(11, 13, 16, 0.92);
+            padding-top: 12px;
+            padding-bottom: 12px;
+
+            background: rgba(15,17,19,0.94);
         }
 
+
         .logo {
-            font-size: 22px;
+            font-size: 21px;
             font-weight: 900;
-            letter-spacing: 1px;
+
+            letter-spacing: 0.5px;
+
+            white-space: nowrap;
         }
 
         .logo span {
             color: #ffae00;
         }
 
+
         .nav-links {
             display: flex;
-            gap: 30px;
+
+            gap: 28px;
+
             list-style: none;
+
+            margin-left: auto;
         }
 
         .nav-links a {
             color: #ddd;
+
+            font-size: 14px;
+
             transition: 0.3s;
-            font-size: 15px;
         }
 
         .nav-links a:hover {
             color: #ffae00;
         }
 
+
         .nav-button {
-            padding: 11px 20px;
+            padding: 11px 18px;
+
             background: #ffae00;
+
             color: #111;
-            border-radius: 8px;
-            font-weight: bold;
+
+            border-radius: 9px;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+
             transition: 0.3s;
         }
 
         .nav-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255,174,0,0.25);
+
+            box-shadow:
+                0 10px 30px rgba(255,174,0,0.3);
         }
 
 
-        /* =========================
+        /* =====================================================
            HERO
-        ========================= */
+        ===================================================== */
 
         .hero {
             min-height: 100vh;
@@ -198,21 +262,24 @@
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 850px;
         }
 
+
         .tag {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
 
-            padding: 8px 14px;
-
-            border: 1px solid rgba(255,174,0,0.4);
-
-            background: rgba(255,174,0,0.08);
-
-            color: #ffbd2e;
+            padding: 9px 15px;
 
             border-radius: 50px;
+
+            background: rgba(255,174,0,0.1);
+
+            border: 1px solid rgba(255,174,0,0.3);
+
+            color: #ffc247;
 
             font-size: 13px;
 
@@ -221,10 +288,13 @@
             animation: fadeUp 0.8s ease forwards;
         }
 
-        .hero h1 {
-            font-size: clamp(45px, 7vw, 90px);
 
-            line-height: 0.95;
+        .hero h1 {
+            font-size: clamp(48px,7vw,90px);
+
+            line-height: 0.96;
+
+            letter-spacing: -3px;
 
             margin-bottom: 30px;
 
@@ -235,10 +305,11 @@
             color: #ffae00;
         }
 
-        .hero p {
-            max-width: 650px;
 
-            color: #b8bcc2;
+        .hero p {
+            max-width: 680px;
+
+            color: #c1c5c9;
 
             font-size: 19px;
 
@@ -249,58 +320,78 @@
             animation: fadeUp 1.2s ease forwards;
         }
 
+
         .hero-buttons {
             display: flex;
 
-            gap: 15px;
+            gap: 14px;
 
             flex-wrap: wrap;
 
             animation: fadeUp 1.4s ease forwards;
         }
 
+
+        /* =====================================================
+           BOTONES
+        ===================================================== */
+
         .button {
-            display: inline-block;
+            display: inline-flex;
 
-            padding: 16px 25px;
+            align-items: center;
+            justify-content: center;
 
-            border-radius: 9px;
+            padding: 15px 24px;
 
-            font-weight: bold;
+            border-radius: 10px;
 
-            transition: 0.3s;
+            font-weight: 800;
+
+            transition: 0.3s ease;
 
             cursor: pointer;
+
+            border: none;
+
+            font-size: 15px;
         }
 
         .button-primary {
             background: #ffae00;
+
             color: #111;
+
+            box-shadow:
+                0 8px 25px rgba(255,174,0,0.12);
         }
 
         .button-primary:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
 
             box-shadow:
-                0 15px 30px rgba(255,174,0,0.25);
+                0 15px 35px rgba(255,174,0,0.28);
         }
 
-        .button-secondary {
-            border: 1px solid rgba(255,255,255,0.2);
 
-            background: rgba(255,255,255,0.04);
+        .button-secondary {
+            border: 1px solid rgba(255,255,255,0.18);
+
+            background: rgba(255,255,255,0.05);
+
+            color: white;
         }
 
         .button-secondary:hover {
             background: rgba(255,255,255,0.1);
 
-            transform: translateY(-5px);
+            transform: translateY(-4px);
         }
 
 
-        /* =========================
-           ANIMACIÓN ENTRADA
-        ========================= */
+        /* =====================================================
+           ANIMACIÓN
+        ===================================================== */
 
         @keyframes fadeUp {
 
@@ -317,18 +408,18 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            SECCIONES
-        ========================= */
+        ===================================================== */
 
         section {
             padding: 110px 7%;
         }
 
         .section-title {
-            max-width: 700px;
+            max-width: 720px;
 
-            margin-bottom: 60px;
+            margin-bottom: 55px;
         }
 
         .section-title small {
@@ -336,17 +427,19 @@
 
             text-transform: uppercase;
 
-            font-weight: bold;
+            font-weight: 800;
 
             letter-spacing: 2px;
         }
 
         .section-title h2 {
-            font-size: clamp(35px, 5vw, 60px);
+            font-size: clamp(35px,5vw,60px);
 
-            margin-top: 15px;
+            margin-top: 14px;
 
             margin-bottom: 20px;
+
+            line-height: 1;
         }
 
         .section-title p {
@@ -358,77 +451,88 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            SERVICIOS
-        ========================= */
+        ===================================================== */
 
         .services {
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(3,1fr);
 
             gap: 20px;
         }
 
+
         .service {
-            padding: 35px;
-
-            min-height: 280px;
-
-            background:
-                rgba(255,255,255,0.045);
-
-            border:
-                1px solid rgba(255,255,255,0.08);
-
-            border-radius: 18px;
-
-            transition:
-                transform 0.4s,
-                background 0.4s,
-                border 0.4s;
-
             position: relative;
 
             overflow: hidden;
+
+            min-height: 285px;
+
+            padding: 32px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.075),
+                    rgba(255,255,255,0.025)
+                );
+
+            border: 1px solid rgba(255,255,255,0.09);
+
+            transition:
+                transform 0.4s,
+                border 0.4s,
+                background 0.4s;
         }
 
-        .service::before {
+
+        .service::after {
             content: "";
 
             position: absolute;
 
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
 
-            background: #ffae00;
+            right: -80px;
+            top: -80px;
 
             border-radius: 50%;
 
-            filter: blur(80px);
+            background: #ffae00;
+
+            filter: blur(70px);
 
             opacity: 0;
-
-            right: -50px;
-            top: -50px;
 
             transition: 0.4s;
         }
 
-        .service:hover {
-            transform: translateY(-10px);
 
-            background:
-                rgba(255,255,255,0.07);
+        .service:hover {
+            transform: translateY(-9px);
 
             border-color:
                 rgba(255,174,0,0.35);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.1),
+                    rgba(255,255,255,0.035)
+                );
         }
 
-        .service:hover::before {
-            opacity: 0.2;
+        .service:hover::after {
+            opacity: 0.18;
         }
+
 
         .service-icon {
             font-size: 40px;
@@ -436,10 +540,11 @@
             margin-bottom: 25px;
         }
 
-        .service h3 {
-            font-size: 24px;
 
-            margin-bottom: 15px;
+        .service h3 {
+            font-size: 23px;
+
+            margin-bottom: 14px;
         }
 
         .service p {
@@ -449,9 +554,9 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            SOBRE NOSOTROS
-        ========================= */
+        ===================================================== */
 
         .about {
             display: grid;
@@ -459,43 +564,64 @@
             grid-template-columns:
                 1fr 1fr;
 
-            gap: 70px;
+            gap: 65px;
 
             align-items: center;
         }
 
-        .about-image {
-            min-height: 500px;
 
-            border-radius: 20px;
+        .about-image {
+            min-height: 520px;
+
+            border-radius: 25px;
+
+            position: relative;
+
+            overflow: hidden;
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255,174,0,0.2),
-                    rgba(0,0,0,0.8)
+                    rgba(255,174,0,0.18),
+                    rgba(0,0,0,0.65)
                 ),
-                url(
-                    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
-                );
+                url("https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&fit=crop&w=1200&q=80");
 
             background-size: cover;
 
             background-position: center;
 
-            border:
-                1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
 
-            transition:
-                transform 0.6s;
+            transition: 0.6s;
         }
+
+
+        .about-image::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.5),
+                    transparent 60%
+                );
+        }
+
 
         .about-image:hover {
-            transform: scale(1.03);
+            transform: scale(1.02);
         }
 
+
         .about-text h2 {
-            font-size: 50px;
+            font-size: clamp(40px,5vw,55px);
+
+            line-height: 1;
 
             margin-bottom: 25px;
         }
@@ -508,25 +634,33 @@
             margin-bottom: 20px;
         }
 
+
         .stats {
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(3,1fr);
 
-            gap: 20px;
+            gap: 15px;
 
             margin-top: 35px;
         }
+
 
         .stat {
             padding: 20px;
 
             background:
-                rgba(255,255,255,0.04);
+                rgba(255,255,255,0.045);
 
-            border-radius: 12px;
+            border:
+
+                1px solid
+                rgba(255,255,255,0.06);
+
+            border-radius: 14px;
         }
+
 
         .stat strong {
             display: block;
@@ -534,6 +668,8 @@
             font-size: 30px;
 
             color: #ffae00;
+
+            margin-bottom: 5px;
         }
 
         .stat span {
@@ -543,28 +679,42 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            PROCESO
-        ========================= */
+        ===================================================== */
 
         .process {
             display: grid;
 
             grid-template-columns:
-                repeat(4, 1fr);
+                repeat(4,1fr);
 
-            gap: 20px;
+            gap: 18px;
         }
+
 
         .step {
             padding: 30px;
 
-            border-left:
-                2px solid #ffae00;
+            border-radius: 15px;
 
             background:
-                rgba(255,255,255,0.035);
+                rgba(255,255,255,0.04);
+
+            border-top:
+                2px solid #ffae00;
+
+            transition: 0.35s;
         }
+
+
+        .step:hover {
+            transform: translateY(-7px);
+
+            background:
+                rgba(255,255,255,0.07);
+        }
+
 
         .step-number {
             font-size: 45px;
@@ -574,12 +724,14 @@
             color:
                 rgba(255,174,0,0.35);
 
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
+
 
         .step h3 {
             margin-bottom: 12px;
         }
+
 
         .step p {
             color: #999;
@@ -588,20 +740,24 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            CTA
-        ========================= */
+        ===================================================== */
 
         .cta {
+            position: relative;
+
+            overflow: hidden;
+
             text-align: center;
 
-            padding: 100px 20px;
+            padding: 110px 20px;
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255,174,0,0.15),
-                    rgba(255,255,255,0.03)
+                    rgba(255,174,0,0.16),
+                    rgba(255,255,255,0.035)
                 );
 
             border-top:
@@ -611,17 +767,46 @@
                 1px solid rgba(255,255,255,0.08);
         }
 
+
+        .cta::before {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%,-50%);
+
+            border-radius: 50%;
+
+            background: #ffae00;
+
+            filter: blur(150px);
+
+            opacity: 0.08;
+        }
+
+
         .cta h2 {
+            position: relative;
+
             font-size:
-                clamp(40px, 6vw, 70px);
+                clamp(40px,6vw,70px);
 
             margin-bottom: 20px;
         }
 
+
         .cta p {
+            position: relative;
+
             color: #aaa;
 
-            max-width: 600px;
+            max-width: 620px;
 
             margin: auto;
 
@@ -631,26 +816,33 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            CONTACTO
-        ========================= */
+        ===================================================== */
 
         .contact {
             display: grid;
 
             grid-template-columns:
-                1fr 1fr;
+                0.9fr 1.1fr;
 
-            gap: 50px;
+            gap: 55px;
+
+            align-items: start;
         }
 
+
         .contact-info h2 {
-            font-size: 50px;
+            font-size:
+                clamp(40px,5vw,55px);
+
+            line-height: 1;
 
             margin-bottom: 20px;
         }
 
-        .contact-info p {
+
+        .contact-info > p {
             color: #aaa;
 
             line-height: 1.7;
@@ -658,16 +850,32 @@
             margin-bottom: 30px;
         }
 
+
         .contact-item {
-            margin-bottom: 20px;
+            margin-bottom: 14px;
 
             padding: 18px;
 
             background:
-                rgba(255,255,255,0.04);
+                rgba(255,255,255,0.045);
 
-            border-radius: 10px;
+            border:
+                1px solid
+                rgba(255,255,255,0.06);
+
+            border-radius: 12px;
+
+            transition: 0.3s;
         }
+
+
+        .contact-item:hover {
+            transform: translateX(5px);
+
+            border-color:
+                rgba(255,174,0,0.25);
+        }
+
 
         .contact-item strong {
             display: block;
@@ -677,21 +885,62 @@
             margin-bottom: 5px;
         }
 
+
         .contact-item a {
             transition: 0.3s;
         }
+
 
         .contact-item a:hover {
             color: #ffae00;
         }
 
+
+        /* =====================================================
+           FORMULARIO
+        ===================================================== */
+
         .contact-form {
+            padding: 30px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.045);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.2);
+
             display: flex;
 
             flex-direction: column;
 
             gap: 15px;
         }
+
+
+        .form-title {
+            margin-bottom: 5px;
+        }
+
+
+        .form-title h3 {
+            font-size: 25px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .form-title p {
+            color: #999;
+
+            font-size: 14px;
+        }
+
 
         .contact-form input,
         .contact-form textarea {
@@ -701,10 +950,11 @@
             padding: 17px;
 
             background:
-                rgba(255,255,255,0.05);
+                rgba(0,0,0,0.25);
 
             border:
-                1px solid rgba(255,255,255,0.1);
+                1px solid
+                rgba(255,255,255,0.1);
 
             border-radius: 10px;
 
@@ -713,12 +963,28 @@
             outline: none;
 
             font-size: 15px;
+
+            font-family: inherit;
+
+            transition: 0.3s;
         }
+
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #888;
+        }
+
 
         .contact-form input:focus,
         .contact-form textarea:focus {
             border-color: #ffae00;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(255,174,0,0.08);
         }
+
 
         .contact-form textarea {
             min-height: 160px;
@@ -727,15 +993,25 @@
         }
 
 
-        /* =========================
+        .form-note {
+            color: #777;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
            FOOTER
-        ========================= */
+        ===================================================== */
 
         footer {
             padding: 40px 7%;
 
             border-top:
-                1px solid rgba(255,255,255,0.08);
+                1px solid
+                rgba(255,255,255,0.08);
 
             display: flex;
 
@@ -746,24 +1022,25 @@
             flex-wrap: wrap;
 
             color: #777;
+
+            font-size: 14px;
         }
 
 
-        /* =========================
-           BOTÓN WHATSAPP
-        ========================= */
+        /* =====================================================
+           WHATSAPP
+        ===================================================== */
 
         .whatsapp {
-
             position: fixed;
 
             right: 25px;
 
             bottom: 25px;
 
-            width: 60px;
+            width: 62px;
 
-            height: 60px;
+            height: 62px;
 
             border-radius: 50%;
 
@@ -775,12 +1052,12 @@
 
             align-items: center;
 
-            font-size: 28px;
+            font-size: 29px;
 
             z-index: 999;
 
             box-shadow:
-                0 10px 30px rgba(0,0,0,0.3);
+                0 10px 30px rgba(0,0,0,0.35);
 
             animation:
                 pulse 2s infinite;
@@ -788,9 +1065,13 @@
             transition: 0.3s;
         }
 
+
         .whatsapp:hover {
-            transform: scale(1.1);
+            transform:
+                translateY(-5px)
+                scale(1.05);
         }
+
 
         @keyframes pulse {
 
@@ -802,7 +1083,7 @@
 
             70% {
                 box-shadow:
-                    0 0 0 18px
+                    0 0 0 17px
                     rgba(37,211,102,0);
             }
 
@@ -815,19 +1096,21 @@
         }
 
 
-        /* =========================
-           SCROLL REVEAL
-        ========================= */
+        /* =====================================================
+           REVEAL
+        ===================================================== */
 
         .reveal {
             opacity: 0;
 
             transform:
-                translateY(50px);
+                translateY(40px);
 
             transition:
-                1s ease;
+                opacity 0.8s ease,
+                transform 0.8s ease;
         }
+
 
         .reveal.active {
             opacity: 1;
@@ -837,18 +1120,28 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            RESPONSIVE
-        ========================= */
+        ===================================================== */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
+
+            nav {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
 
             .nav-links {
                 display: none;
             }
 
+            .nav-button {
+                margin-left: auto;
+            }
+
             .services {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    repeat(2,1fr);
             }
 
             .about {
@@ -857,7 +1150,7 @@
 
             .process {
                 grid-template-columns:
-                    1fr 1fr;
+                    repeat(2,1fr);
             }
 
             .contact {
@@ -867,41 +1160,104 @@
         }
 
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
 
-            section {
-                padding: 80px 5%;
+            nav {
+                padding:
+                    14px 5%;
+
+                gap: 12px;
             }
+
+
+            .logo {
+                font-size: 17px;
+
+                letter-spacing: 0;
+            }
+
+
+            .nav-button {
+                padding:
+                    9px 13px;
+
+                font-size: 12px;
+            }
+
 
             .hero {
-                padding-left: 5%;
-                padding-right: 5%;
+                padding:
+                    135px 5% 90px;
             }
+
+
+            .hero h1 {
+                font-size: 49px;
+
+                letter-spacing: -2px;
+            }
+
+
+            .hero p {
+                font-size: 17px;
+            }
+
+
+            .hero-buttons {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+
+            .hero-buttons .button {
+                width: 100%;
+            }
+
+
+            section {
+                padding:
+                    80px 5%;
+            }
+
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
 
             .process {
                 grid-template-columns: 1fr;
             }
 
+
             .stats {
                 grid-template-columns: 1fr;
             }
 
+
             .about-image {
-                min-height: 350px;
+                min-height: 360px;
             }
 
-            .hero h1 {
-                font-size: 48px;
+
+            .contact-form {
+                padding: 20px;
             }
 
-            .about-text h2,
-            .contact-info h2 {
-                font-size: 40px;
-            }
 
             .whatsapp {
+                width: 58px;
+                height: 58px;
+
                 right: 18px;
                 bottom: 18px;
+            }
+
+
+            footer {
+                padding:
+                    35px 5%;
             }
 
         }
@@ -914,30 +1270,30 @@
 <body>
 
 
-    <!-- =========================
-         FONDO ANIMADO
-    ========================== -->
+    <!-- =====================================================
+         FONDO
+    ===================================================== -->
 
     <div class="background">
 
-        <div class="orb orb1"></div>
-
-        <div class="orb orb2"></div>
-
-        <div class="orb orb3"></div>
+        <div class="background-image"></div>
 
     </div>
 
+    <div class="light one"></div>
+    <div class="light two"></div>
 
-    <!-- =========================
+
+    <!-- =====================================================
          NAVBAR
-    ========================== -->
+    ===================================================== -->
 
     <nav id="navbar">
 
         <a href="#inicio" class="logo">
             REFORMAS<span>VICTORIO</span>
         </a>
+
 
         <ul class="nav-links">
 
@@ -967,6 +1323,7 @@
 
         </ul>
 
+
         <a
             href="#contacto"
             class="nav-button"
@@ -977,16 +1334,16 @@
     </nav>
 
 
-    <!-- =========================
+    <!-- =====================================================
          CONTENIDO
-    ========================== -->
+    ===================================================== -->
 
     <main>
 
 
-        <!-- =========================
+        <!-- =================================================
              HERO
-        ========================== -->
+        ================================================= -->
 
         <section
             class="hero"
@@ -996,14 +1353,14 @@
             <div class="hero-content">
 
                 <div class="tag">
-
                     🛠️ Reformas · Pintura · Mantenimiento
-
                 </div>
+
 
                 <h1>
 
-                    Transformamos<br>
+                    Transformamos
+                    <br>
 
                     <span>
                         tu espacio.
@@ -1011,13 +1368,16 @@
 
                 </h1>
 
+
                 <p>
 
                     Reformas, pintura y trabajos de mantenimiento
-                    realizados por profesionales. Trabajamos a domicilio
-                    cuidando cada detalle.
+                    realizados con profesionalidad y cuidado.
+                    Nos desplazamos hasta tu vivienda para hacer
+                    realidad tu proyecto.
 
                 </p>
+
 
                 <div class="hero-buttons">
 
@@ -1027,6 +1387,7 @@
                     >
                         Solicitar presupuesto →
                     </a>
+
 
                     <a
                         href="#servicios"
@@ -1042,9 +1403,9 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              SERVICIOS
-        ========================== -->
+        ================================================= -->
 
         <section id="servicios">
 
@@ -1054,15 +1415,15 @@
                     Qué hacemos
                 </small>
 
+
                 <h2>
-                    Servicios para renovar tu hogar.
+                    Todo lo que tu hogar necesita.
                 </h2>
 
+
                 <p>
-
-                    Nos encargamos de diferentes tipos de trabajos
-                    para que no tengas que preocuparte por nada.
-
+                    Desde una simple mano de pintura hasta una
+                    reforma completa. Nos adaptamos a cada proyecto.
                 </p>
 
             </div>
@@ -1082,10 +1443,9 @@
                     </h3>
 
                     <p>
-
-                        Pintura interior y exterior, paredes, techos,
-                        habitaciones y todo tipo de superficies.
-
+                        Pintura interior y exterior, paredes,
+                        techos, habitaciones y diferentes tipos
+                        de superficies.
                     </p>
 
                 </div>
@@ -1102,10 +1462,8 @@
                     </h3>
 
                     <p>
-
-                        Reformas y mejoras para viviendas, locales
-                        y diferentes espacios.
-
+                        Reformas y mejoras para viviendas,
+                        locales y diferentes espacios.
                     </p>
 
                 </div>
@@ -1122,10 +1480,8 @@
                     </h3>
 
                     <p>
-
-                        Trabajos de albañilería, reparación,
-                        mantenimiento y renovación.
-
+                        Albañilería, reparación, mantenimiento
+                        y renovación de diferentes espacios.
                     </p>
 
                 </div>
@@ -1142,10 +1498,8 @@
                     </h3>
 
                     <p>
-
                         Renovación y mejora de baños para conseguir
-                        un espacio moderno y funcional.
-
+                        un espacio moderno, cómodo y funcional.
                     </p>
 
                 </div>
@@ -1162,10 +1516,8 @@
                     </h3>
 
                     <p>
-
                         Solucionamos desperfectos y realizamos
                         trabajos de mantenimiento en el hogar.
-
                     </p>
 
                 </div>
@@ -1182,10 +1534,8 @@
                     </h3>
 
                     <p>
-
-                        Cuéntanos qué necesitas y buscamos la mejor
-                        solución para tu vivienda.
-
+                        Cuéntanos qué necesitas y buscamos
+                        contigo la mejor solución.
                     </p>
 
                 </div>
@@ -1196,9 +1546,9 @@
         </section>
 
 
-        <!-- =========================
-             SOBRE NOSOTROS
-        ========================== -->
+        <!-- =================================================
+             NOSOTROS
+        ================================================= -->
 
         <section id="nosotros">
 
@@ -1214,29 +1564,29 @@
                         SOBRE NOSOTROS
                     </small>
 
+
                     <h2>
-                        Experiencia y trabajo bien hecho.
+                        Trabajo bien hecho, sin complicaciones.
                     </h2>
 
+
                     <p>
-
-                        Somos una empresa especializada en reformas,
-                        pintura y trabajos de mantenimiento.
-
+                        Somos profesionales especializados en
+                        reformas, pintura y trabajos de mantenimiento.
                     </p>
 
+
                     <p>
-
-                        Nuestro objetivo es ofrecer un servicio cercano,
-                        profesional y adaptado a cada cliente.
-
+                        Nos gusta trabajar de forma cercana,
+                        escuchar al cliente y cuidar cada detalle
+                        del trabajo.
                     </p>
 
+
                     <p>
-
-                        Desde pequeños trabajos hasta proyectos más
-                        completos, nos encargamos de cada detalle.
-
+                        Ya sea un pequeño arreglo o un proyecto
+                        más completo, buscamos ofrecer un resultado
+                        del que puedas estar satisfecho.
                     </p>
 
 
@@ -1286,14 +1636,15 @@
 
                 </div>
 
+
             </div>
 
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              PROCESO
-        ========================== -->
+        ================================================= -->
 
         <section id="proceso">
 
@@ -1303,9 +1654,16 @@
                     Cómo trabajamos
                 </small>
 
+
                 <h2>
                     Fácil, rápido y sin complicaciones.
                 </h2>
+
+
+                <p>
+                    Nos cuentas lo que necesitas y nosotros
+                    nos encargamos del resto.
+                </p>
 
             </div>
 
@@ -1324,10 +1682,8 @@
                     </h3>
 
                     <p>
-
-                        Cuéntanos qué necesitas realizar en tu vivienda
-                        o local.
-
+                        Escríbenos por WhatsApp o utiliza
+                        nuestro formulario.
                     </p>
 
                 </div>
@@ -1344,10 +1700,8 @@
                     </h3>
 
                     <p>
-
-                        Analizamos el proyecto y hablamos contigo
-                        sobre las diferentes opciones.
-
+                        Hablamos contigo para conocer exactamente
+                        qué necesitas.
                     </p>
 
                 </div>
@@ -1360,14 +1714,12 @@
                     </div>
 
                     <h3>
-                        Te damos presupuesto
+                        Presupuesto
                     </h3>
 
                     <p>
-
-                        Recibes un presupuesto adaptado al trabajo
-                        que necesitas.
-
+                        Preparamos una propuesta adaptada
+                        a tu proyecto.
                     </p>
 
                 </div>
@@ -1384,10 +1736,8 @@
                     </h3>
 
                     <p>
-
-                        Nos ponemos manos a la obra y cuidamos cada
-                        detalle del proyecto.
-
+                        Nos ponemos a trabajar y cuidamos
+                        cada detalle.
                     </p>
 
                 </div>
@@ -1398,9 +1748,9 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              CTA
-        ========================== -->
+        ================================================= -->
 
         <section class="cta reveal">
 
@@ -1408,27 +1758,26 @@
                 ¿Tienes un proyecto?
             </h2>
 
+
             <p>
-
                 Cuéntanos qué necesitas y hablamos sin compromiso.
-                Podemos ayudarte con reformas, pintura y trabajos
-                de mantenimiento.
-
+                Te ayudaremos a encontrar la mejor solución.
             </p>
+
 
             <a
                 href="#contacto"
                 class="button button-primary"
             >
-                Pedir presupuesto
+                Pedir presupuesto →
             </a>
 
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              CONTACTO
-        ========================== -->
+        ================================================= -->
 
         <section id="contacto">
 
@@ -1441,19 +1790,17 @@
                         CONTACTO
                     </small>
 
+
                     <h2>
                         Hablemos de tu proyecto.
                     </h2>
 
+
                     <p>
-
                         Puedes llamarnos, escribirnos por WhatsApp
-                        o utilizar el formulario.
-
+                        o enviarnos tu solicitud mediante el formulario.
                     </p>
 
-
-                    <!-- TELÉFONO -->
 
                     <div class="contact-item">
 
@@ -1462,15 +1809,11 @@
                         </strong>
 
                         <a href="tel:+34609861923">
-
                             609 86 19 23
-
                         </a>
 
                     </div>
 
-
-                    <!-- WHATSAPP -->
 
                     <div class="contact-item">
 
@@ -1483,15 +1826,26 @@
                             target="_blank"
                             rel="noopener"
                         >
-
                             609 86 19 23
-
                         </a>
 
                     </div>
 
 
-                    <!-- ZONA -->
+                    <div class="contact-item">
+
+                        <strong>
+                            ✉️ Email
+                        </strong>
+
+                        <a
+                            href="mailto:victorio.paint8@gmail.com"
+                        >
+                            victorio.paint8@gmail.com
+                        </a>
+
+                    </div>
+
 
                     <div class="contact-item">
 
@@ -1504,36 +1858,29 @@
                     </div>
 
 
-                    <!-- EMAIL -->
-
-                    <div class="contact-item">
-
-                        <strong>
-                            ✉️ Email
-                        </strong>
-
-                        <a
-                            href="mailto:victorio.paint8@gmail.com"
-                        >
-
-                            victorio.paint8@gmail.com
-
-                        </a>
-
-                    </div>
-
-
                 </div>
 
 
-                <!-- =========================
-                     FORMULARIO FUNCIONAL
-                ========================== -->
+                <!-- =================================================
+                     FORMULARIO
+                ================================================= -->
 
                 <form
                     class="contact-form reveal"
                     onsubmit="enviarFormulario(event)"
                 >
+
+                    <div class="form-title">
+
+                        <h3>
+                            Solicita tu presupuesto
+                        </h3>
+
+                        <p>
+                            Rellena los datos y te contactaremos.
+                        </p>
+
+                    </div>
 
 
                     <input
@@ -1547,7 +1894,7 @@
                     <input
                         id="telefono"
                         type="tel"
-                        placeholder="Teléfono"
+                        placeholder="Tu teléfono"
                         required
                     >
 
@@ -1555,7 +1902,7 @@
                     <input
                         id="email"
                         type="email"
-                        placeholder="Email"
+                        placeholder="Tu email"
                     >
 
 
@@ -1569,32 +1916,37 @@
                     <button
                         type="submit"
                         class="button button-primary"
-                        style="border:none;"
                     >
-
                         Solicitar presupuesto →
-
                     </button>
 
 
+                    <div class="form-note">
+                        Al pulsar el botón se abrirá WhatsApp con
+                        tu solicitud preparada para enviarla.
+                    </div>
+
                 </form>
+
 
             </div>
 
         </section>
 
+
     </main>
 
 
-    <!-- =========================
+    <!-- =====================================================
          FOOTER
-    ========================== -->
+    ===================================================== -->
 
     <footer>
 
         <div>
-            © 2026 REFORMASPRO
+            © 2026 REFORMAS VICTORIO
         </div>
+
 
         <div>
             Reformas · Pintura · Mantenimiento
@@ -1603,98 +1955,81 @@
     </footer>
 
 
-    <!-- =========================
-         BOTÓN WHATSAPP
-    ========================== -->
+    <!-- =====================================================
+         WHATSAPP FLOTANTE
+    ===================================================== -->
 
     <a
         class="whatsapp"
-        href="https://wa.me/34609861923"
+        href="https://wa.me/34609861923?text=Hola%2C%20he%20visto%20vuestra%20web%20y%20me%20gustar%C3%ADa%20solicitar%20un%20presupuesto."
         target="_blank"
         rel="noopener"
         title="Contactar por WhatsApp"
-        aria-label="Contactar por WhatsApp"
     >
-
         💬
-
     </a>
 
 
-    <!-- =========================
+    <!-- =====================================================
          JAVASCRIPT
-    ========================== -->
+    ===================================================== -->
 
     <script>
 
 
-        /* =========================
-           NAVBAR AL HACER SCROLL
-        ========================== */
+        /* =================================================
+           NAVBAR
+        ================================================= */
 
         const navbar =
             document.getElementById("navbar");
 
 
-        window.addEventListener(
-            "scroll",
-            () => {
+        window.addEventListener("scroll", () => {
 
-                if (window.scrollY > 50) {
+            if (window.scrollY > 50) {
 
-                    navbar.classList.add(
-                        "scrolled"
-                    );
+                navbar.classList.add("scrolled");
 
-                } else {
+            } else {
 
-                    navbar.classList.remove(
-                        "scrolled"
-                    );
-
-                }
+                navbar.classList.remove("scrolled");
 
             }
-        );
+
+        });
 
 
-        /* =========================
+
+        /* =================================================
            ANIMACIONES AL HACER SCROLL
-        ========================== */
+        ================================================= */
 
         const reveals =
-            document.querySelectorAll(
-                ".reveal"
-            );
+            document.querySelectorAll(".reveal");
 
 
         function revealOnScroll() {
 
-            reveals.forEach(
-                element => {
+            reveals.forEach(element => {
 
-                    const windowHeight =
-                        window.innerHeight;
+                const windowHeight =
+                    window.innerHeight;
 
-                    const elementTop =
-                        element
-                            .getBoundingClientRect()
-                            .top;
+                const elementTop =
+                    element.getBoundingClientRect().top;
 
 
-                    if (
-                        elementTop <
-                        windowHeight - 100
-                    ) {
+                if (
+                    elementTop <
+                    windowHeight - 80
+                ) {
 
-                        element.classList.add(
-                            "active"
-                        );
-
-                    }
+                    element.classList.add("active");
 
                 }
-            );
+
+            });
 
         }
 
@@ -1708,72 +2043,76 @@
         revealOnScroll();
 
 
-        /* =========================
+
+        /* =================================================
            FORMULARIO → WHATSAPP
-        ========================== */
+        ================================================= */
 
         function enviarFormulario(event) {
 
             event.preventDefault();
 
 
-            /* OBTENER DATOS */
-
             const nombre =
-                document.getElementById(
-                    "nombre"
-                ).value.trim();
+                document.getElementById("nombre").value.trim();
 
 
             const telefono =
-                document.getElementById(
-                    "telefono"
-                ).value.trim();
+                document.getElementById("telefono").value.trim();
 
 
             const email =
-                document.getElementById(
-                    "email"
-                ).value.trim();
+                document.getElementById("email").value.trim();
 
 
             const mensaje =
-                document.getElementById(
-                    "mensaje"
-                ).value.trim();
+                document.getElementById("mensaje").value.trim();
 
 
-            /* CREAR MENSAJE */
+            if (!nombre || !telefono || !mensaje) {
+
+                alert(
+                    "Por favor, completa los campos obligatorios."
+                );
+
+                return;
+
+            }
+
 
             const texto =
 
-                "Hola, quiero solicitar un presupuesto.%0A%0A" +
+                "🏠 *SOLICITUD DE PRESUPUESTO*" +
 
-                "👤 Nombre: " +
-                encodeURIComponent(nombre) +
+                "\n\n" +
 
-                "%0A" +
+                "👤 *Nombre:* " +
+                nombre +
 
-                "📞 Teléfono: " +
-                encodeURIComponent(telefono) +
+                "\n" +
 
-                "%0A" +
+                "📞 *Teléfono:* " +
+                telefono +
 
-                "✉️ Email: " +
-                encodeURIComponent(email) +
+                "\n" +
 
-                "%0A%0A" +
+                "✉️ *Email:* " +
+                (email || "No indicado") +
 
-                "🛠️ Trabajo que necesito:%0A" +
+                "\n\n" +
 
-                encodeURIComponent(mensaje);
+                "🛠️ *Trabajo que necesita:*" +
 
+                "\n" +
 
-            /* ABRIR WHATSAPP */
+                mensaje;
+
 
             const whatsappURL =
+
                 "https://wa.me/34609861923?text=" +
-                texto;
+
+                encodeURIComponent(texto);
 
 
             window.open(
@@ -1782,6 +2121,7 @@
             );
 
         }
+
 
     </script>
 
